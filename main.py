@@ -1,6 +1,5 @@
 from docx import Document
 import os
-import sys
 import glob
 import shutil
 import random
