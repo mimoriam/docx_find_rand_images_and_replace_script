@@ -1,5 +1,6 @@
 from docx import Document
 import os
+import sys
 import glob
 import shutil
 import random
@@ -7,7 +8,12 @@ import re
 
 
 def main():
-    doc = input("Enter document's name: ")
+    doc = input("Enter document's path w/ name & file extension: ")
+
+    if not os.path.exists(doc):
+        print("Either the path or file name is wrong. Please re-input!")
+        main()
+
     document = Document(doc)
     fulltext = []
     username = os.getlogin()
