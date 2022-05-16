@@ -6,12 +6,17 @@ import random
 import re
 
 
-def main():
-    doc = input("Enter document's path w/ name & file extension: ")
+def get_input_and_check_path():
+    while True:
+        doc = input("Enter document's path w/ name & file extension: ")
+        if os.path.exists(doc):
+            return doc
+        else:
+            print("Either the path or file name is wrong. Please re-input!")
 
-    if not os.path.exists(doc):
-        print("Either the path or file name is wrong. Please re-input!")
-        main()
+
+def main():
+    doc = get_input_and_check_path()
 
     document = Document(doc)
     fulltext = []
